@@ -10,6 +10,7 @@ anu
 awen
 e
 en
+epiku
 esun
 ijo
 ike
@@ -27,6 +28,7 @@ ken
 kepeken
 kili
 kin
+kipisi
 kiwen
 ko
 kon
@@ -57,10 +59,12 @@ mije
 moku
 moli
 monsi
+monsuta
 mu
 mun
 musi
 mute
+namako
 nanpa
 nasa
 nasin
@@ -111,6 +115,7 @@ telo
 tenpo
 toki
 tomo
+tonsi
 tu
 unpa
 uta

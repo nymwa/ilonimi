@@ -1,5 +1,7 @@
 import re
 import sys
+from argparse import ArgumentParser
+from .joiner import Joiner
 
 class Detokenizer:
     def __init__(self):
@@ -16,8 +18,16 @@ class Detokenizer:
 
 
 def main():
+    parser = ArgumentParser()
+    parser.add_argument('--merge-proper', action = 'store_true')
+    args = parser.parse_args()
+
+    joiner = Joiner()
     detokenizer = Detokenizer()
+
     for x in sys.stdin:
+        if args.merge_proper:
+            x = joiner(x)
         x = detokenizer(x)
         print(x)
 
