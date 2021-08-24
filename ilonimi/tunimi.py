@@ -5,6 +5,8 @@ from .tokenizer import Tokenizer
 
 def main():
     parser = ArgumentParser()
+    parser.add_argument('--no-tokenize', action = 'store_true')
+    parser.add_argument('--no-normalize', action = 'store_true')
     parser.add_argument('--convert-number', action = 'store_true')
     parser.add_argument('--convert-proper', action = 'store_true')
     args = parser.parse_args()
@@ -14,7 +16,12 @@ def main():
 
     for x in sys.stdin:
         x = x.strip()
-        x = normalizer(x)
-        x = tokenizer(x)
+
+        if not args.no_tokenize:
+            x = normalizer(x)
+
+        if not args.no_normalize:
+            x = tokenizer(x)
+
         print(x)
 
