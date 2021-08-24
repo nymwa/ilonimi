@@ -19,14 +19,14 @@ class Detokenizer:
 
 def main():
     parser = ArgumentParser()
-    parser.add_argument('--merge-proper', action = 'store_true')
+    parser.add_argument('--merge', action = 'store_true')
     args = parser.parse_args()
 
     joiner = Joiner()
     detokenizer = Detokenizer()
 
     for x in sys.stdin:
-        if args.merge_proper:
+        if args.merge:
             x = joiner(x)
         x = detokenizer(x)
         print(x)

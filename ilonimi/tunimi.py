@@ -10,7 +10,7 @@ def main():
     parser.add_argument('--no-normalize', action = 'store_true')
     parser.add_argument('--convert-number', action = 'store_true')
     parser.add_argument('--convert-proper', action = 'store_true')
-    parser.add_argument('--split-proper', action = 'store_true')
+    parser.add_argument('--split', action = 'store_true')
     args = parser.parse_args()
 
     normalizer = Normalizer()
@@ -26,7 +26,7 @@ def main():
         if not args.no_tokenize:
             x = tokenizer(x)
 
-        if args.split_proper:
+        if args.split:
             x = splitter(x)
 
         print(x)
