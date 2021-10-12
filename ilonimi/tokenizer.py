@@ -2,12 +2,19 @@ from .vocabulary import Vocabulary
 from .proper import ProperChecker
 
 class Tokenizer:
-    def __init__(self, vocab = None, convert_number = False, convert_proper = False):
+
+    def __init__(self,
+            vocab = None,
+            convert_unk = False,
+            convert_number = False,
+            convert_proper = False):
+
         if vocab is None:
             self.vocab = Vocabulary()
         else:
             self.vocab = vocab
 
+        self.convert_unk = convert_unk
         self.convert_number = convert_number
         self.convert_proper = convert_proper
 
@@ -27,7 +34,10 @@ class Tokenizer:
             else:
                 return x
         else:
-            return self.vocab.unk
+            if self.convert_unk:
+                return self.vocab.unk
+            else:
+                return x
 
     def __call__(self, x):
         x = x.split()

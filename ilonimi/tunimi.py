@@ -4,17 +4,25 @@ from .normalizer import Normalizer
 from .tokenizer import Tokenizer
 from .splitter import Splitter
 
-def main():
+def parse_args():
     parser = ArgumentParser()
     parser.add_argument('--no-tokenize', action = 'store_true')
     parser.add_argument('--no-normalize', action = 'store_true')
+    parser.add_argument('--convert-unk', action = 'store_true')
     parser.add_argument('--convert-number', action = 'store_true')
     parser.add_argument('--convert-proper', action = 'store_true')
     parser.add_argument('--split', action = 'store_true')
-    args = parser.parse_args()
+    return parser.parse_args()
+
+
+def main():
+    args = parse_args()
 
     normalizer = Normalizer()
-    tokenizer = Tokenizer(convert_number = args.convert_number, convert_proper = args.convert_proper)
+    tokenizer = Tokenizer(
+            convert_unk = args.convert_unk,
+            convert_number = args.convert_number,
+            convert_proper = args.convert_proper)
     splitter = Splitter()
 
     for x in sys.stdin:
