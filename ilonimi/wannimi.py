@@ -1,33 +1,29 @@
-import re
 import sys
-from argparse import ArgumentParser
-from .joiner import Joiner
+from .modules.joiner import Joiner
+from .modules.detokenizer import Detokenizer
 
-class Detokenizer:
-    def __init__(self):
-        self.punct_pattern = re.compile(r' ([!,.:?])')
-        self.quot_pattern = re.compile(r'" ([^"]*) "')
-
-    def __call__(self, x):
-        if type(x) == list:
-            x = ' '.join(x)
-        x = x.strip()
-        x = self.punct_pattern.sub('\\1', x)
-        x = self.quot_pattern.sub('"\\1"', x)
-        return x
-
-
-def main():
-    parser = ArgumentParser()
+def wannimi_args(first):
+    parser = first.add_parser('wan')
     parser.add_argument('--merge', action = 'store_true')
-    args = parser.parse_args()
+    parser.set_defaults(handler = wannimi_main)
 
+
+def wannimi(merge = False):
     joiner = Joiner()
     detokenizer = Detokenizer()
 
     for x in sys.stdin:
-        if args.merge:
+        if merge:
             x = joiner(x)
         x = detokenizer(x)
         print(x)
+
+
+def wannimi_main(args):
+    try:
+        wannimi(merge = args.merge)
+    except BrokenPipeError:
+        pass
+    except KeyboardInterrupt:
+        pass
 

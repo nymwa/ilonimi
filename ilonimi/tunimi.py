@@ -1,41 +1,60 @@
 import sys
-from argparse import ArgumentParser
-from .normalizer import Normalizer
-from .tokenizer import Tokenizer
-from .splitter import Splitter
+from .modules.normalizer import Normalizer
+from .modules.tokenizer import Tokenizer
+from .modules.splitter import Splitter
 
-def parse_args():
-    parser = ArgumentParser()
+def tunimi_args(first):
+    parser = first.add_parser('tu')
     parser.add_argument('--no-tokenize', action = 'store_true')
     parser.add_argument('--no-normalize', action = 'store_true')
     parser.add_argument('--convert-unk', action = 'store_true')
     parser.add_argument('--convert-number', action = 'store_true')
     parser.add_argument('--convert-proper', action = 'store_true')
     parser.add_argument('--split', action = 'store_true')
-    return parser.parse_args()
+    parser.set_defaults(handler = tunimi_main)
 
 
-def main():
-    args = parse_args()
+def tunimi(
+        no_tokenize = False,
+        no_normalize = False,
+        convert_unk = False,
+        convert_number = False,
+        convert_proper = False,
+        split = False):
 
     normalizer = Normalizer()
     tokenizer = Tokenizer(
-            convert_unk = args.convert_unk,
-            convert_number = args.convert_number,
-            convert_proper = args.convert_proper)
+            convert_unk = convert_unk,
+            convert_number = convert_number,
+            convert_proper = convert_proper)
     splitter = Splitter()
 
     for x in sys.stdin:
         x = x.strip()
 
-        if not args.no_normalize:
+        if not no_normalize:
             x = normalizer(x)
 
-        if not args.no_tokenize:
+        if not no_tokenize:
             x = tokenizer(x)
 
-        if args.split:
+        if split:
             x = splitter(x)
 
         print(x)
+
+
+def tunimi_main(args):
+    try:
+        tunimi(
+            no_tokenize = args.no_tokenize,
+            no_normalize = args.no_normalize,
+            convert_unk = args.convert_unk,
+            convert_number = args.convert_number,
+            convert_proper = args.convert_proper,
+            split = args.split)
+    except BrokenPipeError:
+        pass
+    except KeyboardInterrupt:
+        pass
 

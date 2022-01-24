@@ -1,4 +1,4 @@
-from .vocabulary import Vocabulary
+from ilonimi.vocab.vocabulary import Vocabulary
 from .proper import ProperChecker
 
 class Tokenizer:
