@@ -8,6 +8,7 @@ def load_tokipona_vocabulary():
 
 
 class Vocabulary(list):
+
     def __init__(self):
         self.unk = '<unk>'
         self.number = '<number>'
@@ -15,7 +16,8 @@ class Vocabulary(list):
 
         self.punctuation_list = list('!",.:?')
         self.punctuation_set = set(self.punctuation_list)
-        self.token_list = self.punctuation_list + load_tokipona_vocabulary()
+        self.word_list = load_tokipona_vocabulary()
+        self.token_list = self.punctuation_list + self.word_list
         super().__init__(self.token_list)
         self.token_set = set(self.token_list)
 
