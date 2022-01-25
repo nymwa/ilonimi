@@ -7,12 +7,12 @@ Toki Pona Tokenizer/Detokenizer
 ### tokenization
 
 ```
-tunimi < text.txt
+nimi tu < text.txt
 ```
 
 ### detokenization
 
 ```
-wannimi < tokenized.txt
+nimi wan < tokenized.txt
 ```
 

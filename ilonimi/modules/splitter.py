@@ -4,14 +4,15 @@ from .proper import (
 
 class Splitter:
 
-    def __init__(self):
+    def __init__(self, sharp = True):
+        self.sharp = sharp
         self.checker = ProperChecker()
         self.splitter = ProperSplitter()
 
     def split_number(self, x):
         if x.isdecimal():
             first = x[0]
-            rest = ['##' + digit for digit in x[1:]]
+            rest = [('##' if self.sharp else '') + digit for digit in x[1:]]
             x = ' '.join([first] + rest)
         return x
 
@@ -19,7 +20,7 @@ class Splitter:
         if self.checker(x):
             x = self.splitter(x)
             first = x[0].upper()
-            rest = ['##' + token.upper() for token in x[1:]]
+            rest = [('##' if self.sharp else '') + token.upper() for token in x[1:]]
             x = ' '.join([first] + rest)
         return x
 

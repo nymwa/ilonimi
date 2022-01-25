@@ -7,6 +7,7 @@ def tunimi_args(first):
     parser = first.add_parser('tu')
     parser.add_argument('--no-tokenize', action = 'store_true')
     parser.add_argument('--no-normalize', action = 'store_true')
+    parser.add_argument('--no-sharp', action = 'store_true')
     parser.add_argument('--convert-unk', action = 'store_true')
     parser.add_argument('--convert-number', action = 'store_true')
     parser.add_argument('--convert-proper', action = 'store_true')
@@ -17,6 +18,7 @@ def tunimi_args(first):
 def tunimi(
         no_tokenize = False,
         no_normalize = False,
+        no_sharp = False,
         convert_unk = False,
         convert_number = False,
         convert_proper = False,
@@ -27,7 +29,7 @@ def tunimi(
             convert_unk = convert_unk,
             convert_number = convert_number,
             convert_proper = convert_proper)
-    splitter = Splitter()
+    splitter = Splitter(sharp = not no_sharp)
 
     for x in sys.stdin:
         x = x.strip()
@@ -49,6 +51,7 @@ def tunimi_main(args):
         tunimi(
             no_tokenize = args.no_tokenize,
             no_normalize = args.no_normalize,
+            no_sharp = args.no_sharp,
             convert_unk = args.convert_unk,
             convert_number = args.convert_number,
             convert_proper = args.convert_proper,
