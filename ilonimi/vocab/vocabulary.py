@@ -14,7 +14,7 @@ class Vocabulary(list):
         self.number = '<number>'
         self.proper = '<proper>'
 
-        self.punctuation_list = list('!\'",.:?')
+        self.punctuation_list = list('!\'",.:?()')
         self.punctuation_set = set(self.punctuation_list)
         self.word_list = load_tokipona_vocabulary()
         self.token_list = self.punctuation_list + self.word_list

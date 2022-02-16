@@ -1,6 +1,7 @@
 from argparse import ArgumentParser
 from .tunimi import tunimi_args
 from .wannimi import wannimi_args
+from .lukin import lukin_args
 from .ud import ud_args
 
 
@@ -9,6 +10,7 @@ def main():
     first = parser.add_subparsers()
     tunimi_args(first)
     wannimi_args(first)
+    lukin_args(first)
     ud_args(first)
     args = parser.parse_args()
 
