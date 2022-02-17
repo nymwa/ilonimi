@@ -18,6 +18,7 @@ ilo
 insa
 jaki
 jan
+jasima
 jelo
 jo
 kala
@@ -32,6 +33,7 @@ kin
 kipisi
 kiwen
 ko
+kokosila
 kon
 kule
 kulupu
@@ -40,6 +42,7 @@ la
 lape
 laso
 lawa
+leko
 len
 lete
 li
@@ -57,6 +60,7 @@ mani
 meli
 mi
 mije
+misikeke
 moku
 moli
 monsi
@@ -104,6 +108,7 @@ sin
 sina
 sinpin
 sitelen
+soko
 sona
 soweli
 suli
