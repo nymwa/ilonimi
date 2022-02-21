@@ -39,6 +39,7 @@ kule
 kulupu
 kute
 la
+lanpan
 lape
 laso
 lawa
