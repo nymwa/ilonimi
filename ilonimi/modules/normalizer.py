@@ -2,7 +2,7 @@ import re
 
 class Normalizer:
     def __init__(self):
-        self.split_punct_pattern = re.compile(r'[^ !"\',.:?()]+|[!"\',.:?()]')
+        self.split_punct_pattern = re.compile(r'[^ !"\',.;:?()]+|[!"\',.;:?()]')
         self.conv_table = str.maketrans({
             '“': '"',
             '„': '"',
