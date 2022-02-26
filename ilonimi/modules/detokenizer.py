@@ -8,7 +8,7 @@ class Detokenizer:
         self.paren_pattern = re.compile(r'\( ([^)]*) \)')
         self.time_pattern = re.compile(r'([0-9]) *: *([0-9])')
         self.num_pattern = re.compile(r'([0-9]) *([,.]) *([0-9])')
-        self.hyphen_pattern = re.compile(r' +- +')
+        self.hyphen_pattern = re.compile(r'(?<=[a-z]) +- +(?=[a-z])')
 
     def __call__(self, x):
         if type(x) == list:
