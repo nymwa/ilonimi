@@ -12,8 +12,19 @@ class ProperChecker:
 class ProperSplitter:
 
     def __init__(self):
-        self.pattern = re.compile(r'[AIUEO]n?|[KSNPMLksnpml][aiueo]n?|[TJtj][aueo]n?|[Ww][aie]n?')
+        pairs = [
+            (' klmnps', 'aeiou'),
+            ('jt', 'aeou'),
+            ('w', 'aei')]
+        syllables = [
+            (c + v).strip()
+            for cs, vs in pairs
+            for c in cs
+            for v in vs]
+        self.pattern = re.compile(r'|'.join(['n?' + x[::-1] for x in syllables[::-1]]))
 
-    def __call__(self, x):
-        return self.pattern.findall(x)
+    def __call__(self, orig):
+        lst = self.pattern.findall(orig.lower()[::-1])
+        hyp = [syll[::-1] for syll in lst][::-1]
+        return hyp
 
