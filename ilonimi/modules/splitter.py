@@ -1,13 +1,12 @@
 from .proper import (
         ProperChecker,
-        ProperSplitter)
+        split_proper)
 
 class Splitter:
 
     def __init__(self, sharp = True):
         self.sharp = sharp
         self.checker = ProperChecker()
-        self.splitter = ProperSplitter()
 
     def split_number(self, x):
         if x.isdecimal():
@@ -18,7 +17,7 @@ class Splitter:
 
     def split_proper(self, x):
         if self.checker(x):
-            x = self.splitter(x)
+            x = split_proper(x)
             first = x[0].upper()
             rest = [('##' if self.sharp else '') + token.upper() for token in x[1:]]
             x = ' '.join([first] + rest)
