@@ -2,7 +2,7 @@ import re
 
 class Detokenizer:
     def __init__(self):
-        self.punct_pattern = re.compile(r' ([!,.;:?])')
+        self.punct_pattern = re.compile(r' ([!,.;:?~])')
         self.quot_pattern1 = re.compile(r'" ([^"]*) "')
         self.quot_pattern2 = re.compile(r'\' ([^\']*) \'')
         self.paren_pattern = re.compile(r'\( ([^)]*) \)')
