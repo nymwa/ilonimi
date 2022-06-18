@@ -7,7 +7,7 @@ with open('README.md') as f:
 
 setuptools.setup(
         name = 'ilonimi',
-        version = '1.3.0',
+        version = '1.4.0',
         author = 'nymwa',
         author_email = 'nymwa0@gmail.com',
         description = 'Toki Pona Tokenizer / Detokenizer / Kanaizer',
