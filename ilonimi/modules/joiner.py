@@ -3,9 +3,11 @@ import re
 class SharpWordJoiner:
 
     def __init__(self):
+        self.safe_merge_pattern = re.compile(r'(?<=[a-z]) ##')
         self.merge_pattern = re.compile(r' ##')
 
     def __call__(self, x):
+        x = self.safe_merge_pattern.sub(' ', x)
         x = self.merge_pattern.sub('', x)
         return x
 

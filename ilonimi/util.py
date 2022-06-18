@@ -3,13 +3,34 @@ from .modules.tokenizer import Tokenizer
 from .modules.splitter import Splitter
 
 def tunimi_common_args(parser):
-    parser.add_argument('--no-tokenize', action = 'store_true')
-    parser.add_argument('--no-normalize', action = 'store_true')
-    parser.add_argument('--no-sharp', action = 'store_true')
-    parser.add_argument('--convert-unk', action = 'store_true')
-    parser.add_argument('--convert-number', action = 'store_true')
-    parser.add_argument('--convert-proper', action = 'store_true')
-    parser.add_argument('--split', action = 'store_true')
+    parser.add_argument(
+            '--no-tokenize',
+            action = 'store_true',
+            help = 'without tokenization')
+    parser.add_argument(
+            '--no-normalize',
+            action = 'store_true',
+            help = 'without normalization')
+    parser.add_argument(
+            '--split',
+            action = 'store_true',
+            help = 'split decimal number by each number and proper noun by each syllable')
+    parser.add_argument(
+            '--no-sharp',
+            action = 'store_true',
+            help = 'without ## mark for splitted number and proper noun')
+    parser.add_argument(
+            '--convert-unk',
+            action = 'store_true',
+            help = 'convert unknown word into <proper>')
+    parser.add_argument(
+            '--convert-number',
+            action = 'store_true',
+            help = 'convert decimal number into <number>')
+    parser.add_argument(
+            '--convert-proper',
+            action = 'store_true',
+            help = 'convert proper noun into <proper>')
 
 
 def preproc(normalizer, tokenizer, splitter, x):

@@ -3,9 +3,15 @@ from .modules.joiner import Joiner
 from .modules.detokenizer import Detokenizer
 
 def wannimi_args(first):
-    parser = first.add_parser('wan')
-    parser.add_argument('--merge', action = 'store_true')
-    parser.add_argument('--no-sharp', action = 'store_true')
+    parser = first.add_parser('wan', description = 'Toki Pona Detokenization')
+    parser.add_argument(
+            '--merge',
+            action = 'store_true',
+            help = 'merge split numbers and proper nouns')
+    parser.add_argument(
+            '--no-sharp',
+            action = 'store_true',
+            help = 'merge numbers and proper nouns without ## marks')
     parser.set_defaults(handler = wannimi_main)
 
 

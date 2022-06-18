@@ -4,12 +4,27 @@ from .modules.tokenizer import Tokenizer
 from .modules.kanaizer import Kanaizer
 
 def kana_args(first):
-    parser = first.add_parser('kana')
-    parser.add_argument('--no-link', action = 'store_true')
-    parser.add_argument('--no-palatalize', action = 'store_true')
-    parser.add_argument('--no-comma', action = 'store_true')
-    parser.add_argument('--space-period', action = 'store_true')
-    parser.add_argument('--space-colon', action = 'store_true')
+    parser = first.add_parser('kana', description = 'Toki Pona Kanaization')
+    parser.add_argument(
+            '--no-link',
+            action = 'store_true',
+            help = 'without linking (e.g. ろなら -> ろんあら)')
+    parser.add_argument(
+            '--no-palatalize',
+            action = 'store_true',
+            help = 'without palatalization (e.g. やんそにゃ -> やんそんや)')
+    parser.add_argument(
+            '--no-comma',
+            action = 'store_true',
+            help = 'delete 「、」')
+    parser.add_argument(
+            '--space-period',
+            action = 'store_true',
+            help = 'replace 「。」 to 「　」')
+    parser.add_argument(
+            '--space-colon',
+            action = 'store_true',
+            help = 'replace 「：」 to 「　」')
     parser.set_defaults(handler = kana_main)
 
 
