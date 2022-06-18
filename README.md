@@ -4,6 +4,12 @@ Toki Pona Tokenizer/Detokenizer
 
 ## how to use
 
+### installation
+
+```
+pip install git+https://github.com/nymwa/ilonimi
+```
+
 ### tokenization
 
 ```
