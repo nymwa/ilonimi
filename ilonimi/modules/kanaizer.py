@@ -53,17 +53,17 @@ number_dict = {
 class Kanaizer:
 
     def __init__(self,
-            link = True,
-            palatalize = True,
-            no_comma = False,
-            space_period = False,
-            space_colon = False):
+            link = False,
+            palatalize = False,
+            comma_as = '、',
+            period_as = '。',
+            colon_as = '：'):
 
         self.link = link
         self.palatalize = palatalize
-        self.no_comma = no_comma
-        self.space_period = space_period
-        self.space_colon = space_colon
+        self.comma_as = comma_as
+        self.period_as = period_as
+        self.colon_as = colon_as
 
         self.vocab = Vocabulary()
         self.proper_checker = ProperChecker()
@@ -128,14 +128,9 @@ class Kanaizer:
         output = self.quot_pattern1.sub('「\\1」', output)
         output = self.quot_pattern2.sub('「\\1」', output)
 
-        if self.no_comma:
-            output = output.replace('、', '')
-
-        if self.space_period:
-            output = output.replace('。', '　').strip()
-
-        if self.space_colon:
-            output = output.replace('：', '　').strip()
+        output = output.replace('、', self.comma_as).strip()
+        output = output.replace('。', self.period_as).strip()
+        output = output.replace('：', self.colon_as).strip()
 
         return output
 
