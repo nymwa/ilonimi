@@ -52,7 +52,13 @@ number_dict = {
 
 class Kanaizer:
 
-    def __init__(self, link, palatalize, no_comma, space_period, space_colon):
+    def __init__(self,
+            link = True,
+            palatalize = True,
+            no_comma = False,
+            space_period = False,
+            space_colon = False):
+
         self.link = link
         self.palatalize = palatalize
         self.no_comma = no_comma
