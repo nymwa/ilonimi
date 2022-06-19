@@ -2,7 +2,7 @@ from argparse import ArgumentParser
 from .tunimi import tunimi_args
 from .wannimi import wannimi_args
 from .lukin import lukin_args
-from .ud import ud_args
+from .ud.main import ud_args
 from .kana import kana_args
 
 

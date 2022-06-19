@@ -5,12 +5,6 @@ def pos_args(second):
     parser.set_defaults(handler = pos_main)
 
 
-def ud_args(first):
-    parser = first.add_parser('ud')
-    second = parser.add_subparsers()
-    pos_args(second)
-
-
 def parse_line(line):
     xs = line.split()
     assert len(xs) == 5
