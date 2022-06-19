@@ -25,7 +25,7 @@ def run_template(
                 sent)
         print(line)
 
-        for word_index, word in enumerate(sent.split()):
+        for word_index, word in enumerate(sent.split(), start = 1):
 
             line = '{}\t{}\tX\t0\tX'.format(
                     word_index,
