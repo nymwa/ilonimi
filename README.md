@@ -6,8 +6,16 @@ Toki Pona Tokenizer/Detokenizer
 
 ### installation
 
+from github (latest)
+
 ```
 pip install git+https://github.com/nymwa/ilonimi
+```
+
+from pypi (easier)
+
+```
+pip install ilonimi
 ```
 
 ### tokenization
