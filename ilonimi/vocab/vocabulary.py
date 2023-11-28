@@ -1,12 +1,15 @@
 from pathlib import Path
 
+
 def load_tokipona_vocabulary():
     path = Path(__file__).parent / 'vocabulary.txt'
     with open(path) as f:
         lst = [x.strip() for x in f]
     return lst
 
+
 punct_list_string = '!"#$%&\'()*+,-./:;<=>?@[]^_`{|}~'
+
 
 class Vocabulary(list):
 

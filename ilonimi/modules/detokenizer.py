@@ -1,6 +1,8 @@
 import re
 
+
 class Detokenizer:
+
     def __init__(self):
         self.punct_pattern = re.compile(r' ([!,.;:?~])')
         self.quot_pattern1 = re.compile(r'" ([^"]*) "')

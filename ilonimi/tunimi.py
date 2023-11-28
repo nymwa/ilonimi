@@ -4,6 +4,7 @@ from .util import (
         preproc,
         tunimi_common_main)
 
+
 def tunimi_args(first):
     parser = first.add_parser('tu', description = 'Toki Pona Tokenization')
     tunimi_common_args(parser)

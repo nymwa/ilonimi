@@ -2,6 +2,7 @@ from .proper import (
         ProperChecker,
         split_proper)
 
+
 class Splitter:
 
     def __init__(self, sharp = True):

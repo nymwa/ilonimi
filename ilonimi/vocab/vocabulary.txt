@@ -7,6 +7,7 @@ ali
 anpa
 ante
 anu
+apeja
 awen
 e
 en
@@ -68,11 +69,13 @@ moku
 moli
 monsi
 monsuta
+monsutatesu
 mu
 mulapisu
 mun
 musi
 mute
+n
 namako
 nanpa
 nasa
@@ -84,6 +87,7 @@ noka
 o
 oko
 olin
+omekapo
 ona
 open
 pakala

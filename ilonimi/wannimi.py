@@ -2,6 +2,7 @@ import sys
 from .modules.joiner import Joiner
 from .modules.detokenizer import Detokenizer
 
+
 def wannimi_args(first):
     parser = first.add_parser('wan', description = 'Toki Pona Detokenization')
     parser.add_argument(

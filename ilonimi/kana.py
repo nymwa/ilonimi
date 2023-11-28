@@ -3,6 +3,7 @@ from .modules.normalizer import Normalizer
 from .modules.tokenizer import Tokenizer
 from .modules.kanaizer import Kanaizer
 
+
 def kana_args(first):
     parser = first.add_parser('kana', description = 'Toki Pona Kanaization')
 

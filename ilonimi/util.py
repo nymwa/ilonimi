@@ -2,6 +2,7 @@ from .modules.normalizer import Normalizer
 from .modules.tokenizer import Tokenizer
 from .modules.splitter import Splitter
 
+
 def tunimi_common_args(parser):
     parser.add_argument(
             '--no-tokenize',

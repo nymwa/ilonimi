@@ -1,5 +1,6 @@
 import re
 
+
 class SharpWordJoiner:
 
     def __init__(self):
